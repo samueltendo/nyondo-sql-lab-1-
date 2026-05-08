@@ -27,7 +27,7 @@ const queryF = db.prepare('SELECT * FROM products ORDER BY price DESC LIMIT 2').
 console.table(queryF);
 
 console.log("\n=== Query G: Update price of Cement (id=1) to 38,000 and confirm ===");
-// First, update the price [cite: 109]
+// First, update the price 
 db.prepare('UPDATE products SET price = 38000 WHERE id = 1').run();
 // Then, SELECT to confirm it worked
 const queryG = db.prepare('SELECT * FROM products WHERE id = 1').get();

