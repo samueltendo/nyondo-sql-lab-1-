@@ -1,0 +1,104 @@
+TENDO SAMUEL
+RFA/
+08.05.2026
+
+//SETUP.JS
+PS C:\Users\Awesome\OneDrive\Desktop\nyondo-sql-lab> node setup
+[
+  {
+    id: 1,
+    name: 'Cement (bag)',
+    description: 'Portland cement 50kg bag',
+    price: 35000
+  },
+  {
+    id: 2,
+    name: 'Iron Sheet 3m',
+    description: 'Gauge 30 roofing sheet 3m long',
+    price: 110000
+  },
+  {
+    id: 3,
+    name: 'Paint 5L',
+    description: 'Exterior wall paint white 5L',
+    price: 60000
+  },
+  {
+    id: 4,
+    name: 'Nails 1kg',
+    description: 'Common wire nails 1kg pack',
+    price: 12000
+  },
+  {
+    id: 5,
+    name: 'Timber 2x4',
+    description: 'Pine timber plank 2x4 per metre',
+    price: 25000
+  }
+]
+
+QUERIES.JS
+PS C:\Users\Awesome\OneDrive\Desktop\nyondo-sql-lab> node queries.js
+=== Query A: Get every column of every product ===
+┌─────────┬────┬─────────────────┬───────────────────────────────────┬────────┐
+│ (index) │ id │ name            │ description                       │ price  │
+├─────────┼────┼─────────────────┼───────────────────────────────────┼────────┤
+│ 0       │ 1  │ 'Cement (bag)'  │ 'Portland cement 50kg bag'        │ 35000  │
+│ 1       │ 2  │ 'Iron Sheet 3m' │ 'Gauge 30 roofing sheet 3m long'  │ 110000 │
+│ 2       │ 3  │ 'Paint 5L'      │ 'Exterior wall paint white 5L'    │ 60000  │
+│ 3       │ 4  │ 'Nails 1kg'     │ 'Common wire nails 1kg pack'      │ 12000  │
+│ 4       │ 5  │ 'Timber 2x4'    │ 'Pine timber plank 2x4 per metre' │ 25000  │
+└─────────┴────┴─────────────────┴───────────────────────────────────┴────────┘
+
+=== Query B: Get only the name and price of all products ===
+┌─────────┬─────────────────┬────────┐
+│ (index) │ name            │ price  │
+├─────────┼─────────────────┼────────┤
+│ 0       │ 'Cement (bag)'  │ 35000  │
+│ 1       │ 'Iron Sheet 3m' │ 110000 │
+│ 2       │ 'Paint 5L'      │ 60000  │
+│ 3       │ 'Nails 1kg'     │ 12000  │
+│ 4       │ 'Timber 2x4'    │ 25000  │
+└─────────┴─────────────────┴────────┘
+
+=== Query C: Get full details of the product with id = 3 ===
+{
+  id: 3,
+  name: 'Paint 5L',
+  description: 'Exterior wall paint white 5L',
+  price: 60000
+}
+
+=== Query D: Find all products whose name contains 'sheet' ===
+┌─────────┬────┬─────────────────┬──────────────────────────────────┬────────┐
+│ (index) │ id │ name            │ description                      │ price  │
+├─────────┼────┼─────────────────┼──────────────────────────────────┼────────┤
+│ 0       │ 2  │ 'Iron Sheet 3m' │ 'Gauge 30 roofing sheet 3m long' │ 110000 │
+└─────────┴────┴─────────────────┴──────────────────────────────────┴────────┘
+
+=== Query E: Get all products sorted by price, highest first ===
+┌─────────┬────┬─────────────────┬───────────────────────────────────┬────────┐
+│ (index) │ id │ name            │ description                       │ price  │
+├─────────┼────┼─────────────────┼───────────────────────────────────┼────────┤
+│ 0       │ 2  │ 'Iron Sheet 3m' │ 'Gauge 30 roofing sheet 3m long'  │ 110000 │
+│ 1       │ 3  │ 'Paint 5L'      │ 'Exterior wall paint white 5L'    │ 60000  │
+│ 2       │ 1  │ 'Cement (bag)'  │ 'Portland cement 50kg bag'        │ 35000  │
+│ 3       │ 5  │ 'Timber 2x4'    │ 'Pine timber plank 2x4 per metre' │ 25000  │
+│ 4       │ 4  │ 'Nails 1kg'     │ 'Common wire nails 1kg pack'      │ 12000  │
+└─────────┴────┴─────────────────┴───────────────────────────────────┴────────┘
+
+=== Query F: Get only the 2 most expensive products ===
+┌─────────┬────┬─────────────────┬──────────────────────────────────┬────────┐
+│ (index) │ id │ name            │ description                      │ price  │
+├─────────┼────┼─────────────────┼──────────────────────────────────┼────────┤
+│ 0       │ 2  │ 'Iron Sheet 3m' │ 'Gauge 30 roofing sheet 3m long' │ 110000 │
+│ 1       │ 3  │ 'Paint 5L'      │ 'Exterior wall paint white 5L'   │ 60000  │
+└─────────┴────┴─────────────────┴──────────────────────────────────┴────────┘
+
+=== Query G: Update price of Cement (id=1) to 38,000 and confirm ===
+{
+  id: 1,
+  name: 'Cement (bag)',
+  description: 'Portland cement 50kg bag',
+  price: 38000
+}
